@@ -1,0 +1,22 @@
+GET http://localhost:3001
+
+###
+GET http://localhost:3001/api/persons
+
+###
+
+GET http://localhost:3001/info/4
+
+###
+DELETE http://localhost:3001/api/3
+
+###
+POST http://localhost:3001/api/
+
+Content-Type: application/json
+
+{
+    "name": "Soh Wen Ming",
+    "number": "1234" 
+}
+
