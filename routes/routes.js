@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router()
 
+
 const helper = require('../helper_functions/helpers')
 const getFilteredPerson = helper.getFilteredPerson
 const persons = require('../src/persons')
 
+
 function allRoutes(personsJson, port) {
+    
     router.get('/', (req, res) => {
         res.send(`getting something from port ${port}`)
         console.log("In main route ")
@@ -35,7 +38,7 @@ function allRoutes(personsJson, port) {
     router.post('/api', (req, res) => {
         console.log("getting into addRoute");
         if(!req.body.name || !req.body.number) {
-            res.status(404).end("mandatory information was not filled in")
+            res.status(404).send("mandatory information was not filled in")
             return
         }
 
@@ -74,6 +77,7 @@ function allRoutes(personsJson, port) {
     router.use("*", (req, res) => {
         res.status(404).end("Here's your fucking error message");
     })
+    
     return router;
 }
 
