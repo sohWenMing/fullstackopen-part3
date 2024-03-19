@@ -1,16 +1,15 @@
 const express = require('express');
 const app = express();
-const getRoutes = require('./routes/getRoutes')
+const allRoutes = require('./routes/routes')
 const persons = require('./src/persons')
-// console.log("persons: ", persons);
+const logger = require('./logging/logger')
 
 const PORT = 3001;
 
-app.delete('/api', getRoutes.deleteRoute(persons));
-app.post('/api', getRoutes.addRoute(persons));
-app.use('/api', getRoutes.apiRoute(persons));
-app.use('/info', getRoutes.infoRoute(persons));
-app.use('/', getRoutes.mainRoute(PORT));
+app.use(express.json())
+app.use(logger);
+app.use(allRoutes(persons, PORT));
+
 
 
 
