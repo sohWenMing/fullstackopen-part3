@@ -6,8 +6,7 @@ const helper = require('../helper_functions/helpers')
 const getFilteredPerson = helper.getFilteredPerson
 const persons = require('../src/persons')
 
-router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended:true}))
+router.use(express.json())
 
 function apiRoute(arg) {
     router.get('/persons', (req, res) => {

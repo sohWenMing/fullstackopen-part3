@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const getRoutes = require('./routes/getRoutes')
 const persons = require('./src/persons')
-console.log("persons: ", persons);
+// console.log("persons: ", persons);
 
 const PORT = 3001;
 
